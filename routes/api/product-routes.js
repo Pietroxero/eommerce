@@ -1,5 +1,8 @@
 const router = require('express').Router();
+
 const { Product, Category, Tag, ProductTag } = require('../../models');
+
+const {response} = require ('express');
 
 // The `/api/products` endpoint
 
@@ -63,7 +66,7 @@ router.post('/', (req, res) => {
       // if no product tags, just respond
       res.status(200).json(product);
     })
-    .then((productTagIds) => res.status(200).json(productTagIds))
+    .then((productTagIds) => res.status(200).json (productTagIds))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -73,7 +76,7 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // update product data
-  Product.update(req.body, {
+  Product.update (req.body, {
     where: {
       id: req.params.id,
     },
@@ -101,12 +104,12 @@ router.put('/:id', (req, res) => {
 
       // run both actions
       return Promise.all([
-        ProductTag.destroy({ where: { id: productTagsToRemove } }),
-        ProductTag.bulkCreate(newProductTags),
+        ProductTag.destroy ({ where: { id: productTagsToRemove } }),
+        ProductTag.bulkCreate (newProductTags),
       ]);
     })
-    .then((updatedProductTags) => res.json(updatedProductTags))
-    .catch((err) => {
+    .then ((updatedProductTags) => res.json (updatedProductTags))
+    .catch ((err) => {
       // console.log(err);
       res.status(400).json(err);
     });
