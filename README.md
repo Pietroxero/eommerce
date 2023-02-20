@@ -30,4 +30,4 @@ THEN I am able to successfully create, update, and delete data in my database
 ## Deployment
 Github repo: https://github.com/Pietroxero/eommerce
 
-Video: 
+Video: https://drive.google.com/file/d/1zE6Xa7tNMBph8xcrHs3jI4uLvkHjDCaQ/view 
